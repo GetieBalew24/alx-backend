@@ -1,10 +1,17 @@
 #!/usr/bin/env python3
-""" Task 0, a function named index_range that takes two integer arguments page and page_size
-a function return a tuple of size two containing a start index and an end index
-to the range of indexes to return in a list for those particular pagination parameters.
+
 """
+Module 0-simple_helper_function
+"""
+
+
 def index_range(page: int, page_size: int) -> tuple:
-    first_index = (page - 1) * page_size
-    last_index = first_index + page_size
-    indexOfrange = first_index, last_index
-    return indexOfrange
+    """
+    Takes two integer arguments page and page_size.
+    Returns a tuple of size two containing a start
+    index and an end index corresponding to the range
+    of indexes to return in a list for those particular
+    pagination parameters.
+    """
+    index_tuple = page_size * (page - 1), page * page_size
+    return index_tuple
