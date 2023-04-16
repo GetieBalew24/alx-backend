@@ -55,17 +55,9 @@ class Server:
         FirstIndex, LastIndex = self.index_range(page, page_size)
         return self.dataset()[FirstIndex:LastIndex]
     def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
-        """hypermedia pagination """
-        data = self.get_page(page, page_size)
-        total_pages = math.ceil(len(self.dataset()) / page_size)
-        next_page = page + 1 if page < total_pages else None
-        prev_page = page - 1 if page > 1 else None
-
-        return {
-                "page_size": len(data),
-                "page": page,
-                "data": data,
-                "next_page": next_page,
-                "prev_page": prev_page,
-                "total_pages": total_pages
-                }
+        """hypermedia pagination"""
+        data_set = self.get_page(page, page_size)
+        prev_pages = page - 1 if page > 1 else None
+        next_pages = page + 1 if page < total_page else None
+        total_page = math.ceil(len(self.dataset()) / page_size)
+        return {"page_size": len(data_set), "page": page, "data": data_set,"next_page": next_pages, "prev_page": prev_pages, "total_pages": total_page }
