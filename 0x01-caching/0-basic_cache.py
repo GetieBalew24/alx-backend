@@ -1,24 +1,22 @@
 #!/usr/bin/python3
 """
-Module 0-basic_cache
+Task 0 Create a class BasicCache 
+that inherits from BaseCaching
+and is a caching system
 """
 from base_caching import BaseCaching
 
 
 class BasicCache(BaseCaching):
-    """
-    Overrides put() nad self()
-    from parent
-    """
+    """ Overide methods defined in basecaching"""
 
     def put(self, key, item):
-        """Add an item in the cache
-        """
+        """assign to the dictionary self.cache_data 
+        the item value for the key key"""
         if key and item:
             self.cache_data[key] = item
-
     def get(self, key):
-        """Get an item by key
+        """return the value in self.cache_data linked to key
         """
-        value = self.cache_data.get(key)
-        return value
+        result = self.cache_data.get(key)
+        return result
