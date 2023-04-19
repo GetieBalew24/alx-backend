@@ -24,7 +24,7 @@ class FIFOCache(BaseCaching):
             if len(self.cache_data) == BaseCaching.MAX_ITEMS and key not in self.queue:
                 deleted_key = self.queue.popleft()
                 del self.cache_data[deleted_key]
-                print("Delete: {}".format(deleted_key))
+                print("DISCARD: {}".format(deleted_key))
             self.cache_data[key] = item
             self.queue.append(key)
 
