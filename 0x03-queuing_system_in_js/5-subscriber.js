@@ -3,13 +3,15 @@ import { createClient } from 'redis';
 const client = createClient();
 const EXIT_MSG = 'KILL_SERVER';
 
-client.on('error', (err) => {
-  console.log('Redis client not connected to the server:', err.toString());
-});
 
 client.on('connect', () => {
   console.log('Redis client connected to the server');
 });
+
+client.on('error', (err) => {
+  console.log('Redis client not connected to the server:', err.toString());
+});
+
 
 client.subscribe('holberton school channel');
 

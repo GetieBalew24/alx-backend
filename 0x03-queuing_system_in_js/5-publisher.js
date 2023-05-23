@@ -2,9 +2,7 @@ import { createClient } from 'redis';
 
 const client = createClient();
 
-client.on('error', (err) => {
-  console.log('Redis client not connected to the server:', err.toString());
-});
+
 
 const publishMessage = (message, time) => {
   setTimeout(() => {
@@ -15,6 +13,10 @@ const publishMessage = (message, time) => {
 
 client.on('connect', () => {
   console.log('Redis client connected to the server');
+});
+
+client.on('error', (err) => {
+  console.log('Redis client not connected to the server:', err.toString());
 });
 
 publishMessage('Holberton Student #1 starts course', 100);
